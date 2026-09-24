@@ -14,7 +14,7 @@ import {
   X,
 } from "lucide-react";
 
-const API = "http://localhost:8000";
+const API = "https://crop-guard-gamma.vercel.app/api/analyze";
 
 const featureCards = [
   {
