@@ -125,20 +125,37 @@ async def analyze(
             rainfall,
         )
 
-        response = client.models.generate_content(
-            model=MODEL,
-            contents=[
-                prompt,
-                types.Part.from_bytes(
-                    data=buffer.getvalue(),
-                    mime_type="image/jpeg",
-                ),
-            ],
-            config=types.GenerateContentConfig(
-                temperature=0.2,
-                max_output_tokens=1200,
-            ),
-        )
+        models_to_try = [MODEL]
+        if MODEL != "gemini-3.1-flash-lite":
+            models_to_try.append("gemini-3.1-flash-lite")
+
+        response = None
+        last_error = None
+
+        for model_name in models_to_try:
+            try:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=[
+                        prompt,
+                        types.Part.from_bytes(
+                            data=buffer.getvalue(),
+                            mime_type="image/jpeg",
+                        ),
+                    ],
+                    config=types.GenerateContentConfig(
+                        temperature=0.2,
+                        max_output_tokens=1200,
+                    ),
+                )
+                break
+            except Exception as exc:
+                last_error = exc
+                if "503" not in str(exc) and "UNAVAILABLE" not in str(exc):
+                    raise
+
+        if response is None:
+            raise last_error
 
         text = (response.text or "").strip()
 
