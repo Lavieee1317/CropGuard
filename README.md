@@ -1,53 +1,62 @@
-# CropGuard
+# 🌱 CropGuard
 
-Premium AgriTech UI + FastAPI + Gemini multimodal AI prototype.
+### AI-Powered Crop Health, Disease & Risk Advisor
 
-## Architecture
+> **See the Problem. Protect the Harvest.**
 
-React/Vite frontend -> FastAPI backend -> Gemini multimodal analysis
+CropGuard is an AI-powered agricultural decision-support platform that uses **multimodal AI** to identify crops, analyze visible crop-health symptoms, assess potential risks, and provide practical and sustainable recommendations.
 
-The API key stays on the backend.
+The project is designed to support farmers, growers, agricultural advisors and field workers with faster preliminary crop-health insights.
 
-## 1. Backend
+---
 
-Open PowerShell in `backend`:
+## 🌾 What is CropGuard?
 
-```powershell
-python -m venv venv
-.\venv\Scripts\python.exe -m pip install -r requirements.txt
-$env:GEMINI_API_KEY="YOUR_GEMINI_API_KEY"
-.\venv\Scripts\python.exe -m uvicorn main:app --reload --port 8000
-```
+Crop health problems such as diseases, pests and environmental stress can be difficult to identify at an early stage.
 
-If PowerShell blocks activation, do NOT activate the venv; use the `.\venv\Scripts\python.exe` commands above.
+CropGuard allows users to:
 
-## 2. Frontend
+- 📸 Upload a crop image
+- 🌱 Automatically identify the crop
+- 🔍 Analyze visible symptoms
+- 🌡️ Consider environmental conditions
+- ⚠️ Assess qualitative risk
+- 💡 Receive practical recommendations
+- ♻️ Get sustainable intervention suggestions
+- 👨‍🌾 Know when expert help may be required
 
-Open another terminal in `frontend`:
+> CropGuard provides **AI-assisted decision support**, not a definitive agricultural diagnosis.
 
-```powershell
-npm install
-npm run dev
-```
+---
 
-Open the URL shown by Vite.
+## ✨ Key Features
 
-## 3. Important
+| Feature | Description |
+|---|---|
+| 📷 Crop Image Analysis | Analyze uploaded crop images using multimodal AI |
+| 🌱 Crop Identification | Identify the crop directly from the image |
+| 🔍 Symptom Analysis | Detect visible signs of disease, pests or stress |
+| 🌡️ Environmental Context | Consider temperature, humidity, rainfall and growth stage |
+| ⚠️ Risk Assessment | Provide Low, Moderate or High qualitative risk |
+| ♻️ Sustainable Actions | Suggest responsible and targeted interventions |
+| 👨‍🌾 Expert Guidance | Recommend professional help when necessary |
+| 🛡️ Responsible AI | Transparency, privacy and human oversight |
 
-A Gemini `429 RESOURCE_EXHAUSTED` response means the API project/key has no available quota. The code cannot bypass that. Use a project/key with available quota.
+---
 
-Never put `GEMINI_API_KEY` in the React frontend.
+## 🧠 How It Works
 
-## MVP flow
-
-Image + growth stage + temperature + humidity + rainfall
--> Gemini multimodal analysis
--> crop identification
--> symptom analysis
--> possible issue
--> qualitative risk
--> sustainable recommendations
--> expert-help guidance
--> AI limitations
-
-This is preliminary decision support, not a definitive agricultural diagnosis.
+```text
+Crop Image
+     ↓
+Environmental Context
+     ↓
+Multimodal AI Analysis
+     ↓
+Crop Identification
+     ↓
+Visual Symptom Analysis
+     ↓
+Risk Assessment
+     ↓
+Sustainable Recommendations
