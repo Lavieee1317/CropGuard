@@ -162,8 +162,8 @@ function App() {
               <em>● AI</em>
             </div>
             {preview ? <img src={preview} alt="Uploaded crop" /> : <div className="mini-leaf"><Leaf /></div>}
-            <strong>{result?.data?.crop || "Tomato"}</strong>
-            <p>{result?.data?.possible_issue || "Possible fungal disease"}</p>
+            <strong>{result?.data?.crop || "Sample Crop"}</strong>
+            <p>{result?.data?.possible_issue || "AI Insight Preview"}</p>
             <div className="risk-pill">{result?.data?.risk_level || "AI READY"}</div>
             <div className="mini-stats">
               <span>🌡 {temperature}°C<br /><small>Temperature</small></span>
